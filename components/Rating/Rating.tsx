@@ -5,7 +5,6 @@ import StarIcon from './star.svg';
 import styles from './Rating.module.css';
 
 export const Rating = ({ 
-    className,
     rating,
     setRating,
     isEditable = false,
