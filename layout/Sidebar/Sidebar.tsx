@@ -3,11 +3,13 @@ import { SidebartProps } from './Sidebar.props';
 import cn from 'classnames';
 import styles from './Sidebar.module.css';
 import { Menu } from '../Menu/Menu';
-
-export const Sidebar = ({ ...props }: SidebartProps): JSX.Element => {
+import Logo from '../logo-olw-top.svg';
+export const Sidebar = ({ className, ...props }: SidebartProps): JSX.Element => {
     
     return (
-        <div {...props}> 
+        <div className={cn(className, styles.sidebar)} {...props}> 
+            <Logo className={styles.logo}/>
+            <div>Поиск...</div>
            <Menu/>
         </div>
     );
