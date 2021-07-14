@@ -1,44 +1,3 @@
-/* .product {
-  display: grid;
-  margin-bottom: 30px;
-  grid-template-columns: [start] 70px [logoend] 30px [titlestart] calc(50% - 100px) [middle] 1fr [pricestart] auto [priceend] 40px [creditstart] auto [creditend] 40px [ratestart] auto [end];
-}
-
-.logo {
-  grid-column: start / logoend;
-  grid-row: 1 / span 2;
-}
-
-.title, .tags {
-  grid-column: titlestart / middle;
-
-}
-
-.price, .priceTitle {
-  grid-column: pricestart / priceend;
-}
-
-.credit, .creditTitle {
-  grid-column: creditstart / creditend;
-}
-
-.rating, .rateTitle {
-  grid-column: rate / end;
-}
-
-.hr, .description, .actions{
-  grid-column: start / end;
-}
-
-.feature {
-  grid-column: start / middle;
-}
-
-.advBlock {
-  grid-column: middle / end;
-}
- */
-
  .product {
 	display: grid;
 	grid-template-columns: [start] 70px [logoend] 30px [titlestart] calc(50% - 100px) [middle] 1fr [pricestart] auto [priceend] 40px [creditstart] auto [creditend] 40px [ratestart] auto [end];
@@ -148,6 +107,27 @@
 }
 
 .disadvantages {
-	border-left: 2px solid var(--red);
+	border-left: 2px solid var(--orange);
 	padding-left: 15px;
-} 
+}
+
+.characteristics {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	padding-right: 60px;
+	font-size: 16px;
+	line-height: 32px;
+	align-items: baseline;
+	gap: 10px;
+}
+
+.characteristicsName {
+	margin-right: 10px;
+	
+}
+
+
+.characteristicsDots {
+	border-bottom: 1px dashed var(--gray-light);
+	margin-bottom: 5px;
+}

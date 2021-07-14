@@ -6,6 +6,8 @@ import { Card } from '../Card/Card';
 import { Rating } from '../Rating/Rating';
 import { Tag } from '../Tag/Tag';
 import { Button } from '../Button/Button';
+import { priceRu, declOfNum } from '../../utils/helpers';
+import { Divider } from '../Divider/Divider';
 
 export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
     return (
@@ -14,38 +16,54 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
                 <img src={process.env.NEXT_PUBLIC_DOMAIN + product.image} alt={product.title}/>
             </div>
             <div className={styles.title}>{product.title}</div>
-            <div className={styles.price}>{product.price}</div>
-            <div className={styles.credit}>{product.credit}</div>
+            <div className={styles.price}>
+                {priceRu(product.price)}
+                {product.oldPrice && <Tag className={styles.oldPrice} color="green">{priceRu(product.price - product.oldPrice)}</Tag>}
+            </div>
+            <div className={styles.credit}>
+                {priceRu(product.credit)}/
+                <span className={styles.month}>мес</span>
+            </div>
             <div className={styles.rating}>
                 <Rating rating={product.reviewAvg ?? product.initialRating}/>
             </div>
             <div className={styles.tags}>
                 {product.categories.map(item => (
-                    <Tag key={item} color="ghost">
+                    <Tag key={item} color="ghost" className={styles.category}>
                         {item}
                     </Tag>
                 ))}
             </div>
             <div className={styles.priceTitle}>цена</div>          
             <div className={styles.creditTitle}>кредит</div>          
-            <div className={styles.rateTitle}>{product.reviewCount} отзывов</div>
-            <div className={styles.hr}><hr/></div>          
+            <div className={styles.rateTitle}>
+                {product.reviewCount}{" "}
+                {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзыввов'])}</div>
+            <Divider className={styles.hr}/>      
             <div className={styles.description}>{product.description}</div>          
-            <div className={styles.feature}>фичи</div>      
+            <div className={styles.feature}>
+                {product.characteristics.map(item => (
+                    <div key={item.name} className={styles.characteristics}>
+                        <span className={styles.characteristicsName}>{item.name}</span>
+                        <span className={styles.characteristicsDots}></span>
+                        <span className={styles.characteristicsValue}>{item.value}</span>
+                    </div>
+                ))}
+            </div>      
             <div className={styles.advBlock}>
-                <div className={styles.advantages}>
-                    <div>Преимущества</div>
+                {product.advantages &&<div className={styles.advantages}>
+                    <div className={styles.advTitle}>Преимущества</div>
                     <div>{product.advantages}</div>
-                </div>
-                <div className={styles.disAdvantages}>
-                    <div>Недостатки</div>
+                </div>}
+                {product.disadvantages && <div className={styles.disadvantages}>
+                    <div className={styles.advTitle}>Недостатки</div>
                     <div>{product.disadvantages}</div>
-                </div>
+                </div>}
             </div>
-            <div className={styles.hr}><hr/></div>
+            <Divider className={styles.hr}/>
             <div className={styles.actions}>
                 <Button appearance="primary">Узнать подробнеее</Button>
-                <Button appearance="ghost" arrow={'right'}>Читать отзывы</Button>
+                <Button appearance="ghost" arrow={'right'} className={styles.reviewButton}>Читать отзывы</Button>
             </div>    
         </Card>
     );
