@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import React from "react";
 import { withLayout } from "../../layout/Layout";
 import axios from 'axios';
-import { MenuItem, TopPageModel, ProductModule, TopLevelCategory } from "../../interfaces";
+import { MenuItem, TopPageModel, ProductModel, TopLevelCategory } from "../../interfaces";
 import { ParsedUrlQuery } from "querystring";
 import { firstLevelMenu } from "../../utils/helpers";
 import { TopPageComponent } from "../../page-components/TopPageComponent/TopPageComponent";
@@ -12,7 +12,7 @@ interface TopPageProps extends Record<string, unknown> {
 	menu: MenuItem[];
 	firstCategory: TopLevelCategory;
 	page: TopPageModel;
-	products: ProductModule[];
+	products: ProductModel[];
 }
 
 function TopPage({ page, products, firstCategory }: TopPageProps): JSX.Element {
@@ -71,7 +71,7 @@ export const getStaticProps: GetStaticProps<TopPageProps> = async ({ params }: G
 			`${process.env.NEXT_PUBLIC_DOMAIN}/api/top-page/byAlias/${params.alias}`
 		);
 			
-		const { data: products } = await axios.post<ProductModule[]>(
+		const { data: products } = await axios.post<ProductModel[]>(
 			`${process.env.NEXT_PUBLIC_DOMAIN}/api/product/find`, {
 			category: page.category,
 			limit: 10
