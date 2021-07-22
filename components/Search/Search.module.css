@@ -1,10 +1,11 @@
 .search {
-  position: relative;
-  width: 100%;
+	position: relative;
+
+	width: 100%;
 }
 
-.input {
-  width: 100%;
+.input input {
+	width: 100%;
 }
 
 .button {

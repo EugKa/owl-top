@@ -144,7 +144,13 @@
 	padding: 30px;
 }
 
+.rateTitle a {
+	color: var(--primary);
+}
 
+.rateLink {
+	cursor: pointer;
+}
 
 @media screen and (max-width: 1320px) {
 	.product {

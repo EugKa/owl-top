@@ -9,7 +9,6 @@ import { Rating } from '../Rating/Rating';
 
 export const Review = ({ review, className, ...props }: ReviewProps): JSX.Element => {
     const { name, title, description, createdAt, rating } = review;
-    console.log(`review`, review);
     return (
         <div 
             className={cn(styles.review, className)}
