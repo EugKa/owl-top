@@ -1,6 +1,3 @@
-.menu {
-}
-
 .firstLevel {
   display: grid;
   grid-template-columns: 24px 1fr;
@@ -40,17 +37,10 @@
 }
 
 .secondLevelBlock {
-  display: none;
-}
-
-.secondLevelBlockOpend {
+  overflow: hidden;
   padding-left: 10px;
-  display: block;
 }
 
-.secondLevelBlockOpend:last-child {
-  margin-bottom: 20px;
-}
 
 .thirdLevel {
   margin-bottom: 10px;
