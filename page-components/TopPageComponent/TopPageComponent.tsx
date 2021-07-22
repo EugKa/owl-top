@@ -10,6 +10,7 @@ import { sortReducer } from './sort.reducer';
 export const TopPageComponent = ({ page, products, firstLevelCategory }: TopPageComponentProps):JSX.Element => {
 	const [{ products: sortedProducts, sort }, dispathSort] = useReducer(sortReducer, { products, sort: SortEnum.Rating });
 
+
     const setSort = (sort: SortEnum) => {
         dispathSort({ type: sort });
     };

@@ -11,25 +11,25 @@
 }
 
 .header {
-  border: 1px solid red;
+
   grid-area: header;
   display: none;
 }
 
 .sidebar {
-  border: 1px solid red;
+
 
   grid-area: sidebar;
 }
 
 .body {
-  border: 1px solid red;
+
 
   grid-area: body;
 }
 
 .footer {
-  border: 1px solid red;
+
 
   grid-area: footer;
 }
