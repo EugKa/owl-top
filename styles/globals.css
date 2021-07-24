@@ -24,14 +24,14 @@ a {
   --gray: #b1b1b1;
   --gray2:#A4a4a4;
   --gray-light: #dbdbdb;
-  --gray-dark: #787d85;
+  --gray-dark: #62666c;
   --white: white;
-  --primary: #7653fc;
+  --primary: #6849df;
   --primary-hover: #6344df;
   --red: #de0000;
   --red-light: #ff5b5b;
   --green-light: #c8f8e4;
-  --green: #1dc37e;
+  --green: #127a4f;
   --orange: #fc836d;
   --font-famaly: "Noto Sans KR", sans-serif;
 }

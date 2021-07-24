@@ -26,7 +26,6 @@
   color: var(--grey-dark);
   font-size: 12px;
   font-weight: 300;
-  line-height: 16px;
 }
 
 .secondBlock {
@@ -46,10 +45,10 @@
   margin-bottom: 10px;
   display: block;
   cursor: pointer;
-  color: var(--grey-dark);
+  color: var(--gray-dark);
   font-weight: 500;
   font-size: 14px;
-  line-height: 19px;
+  outline-offset: -1px;
 }
 
 .thirdLevelActive,
