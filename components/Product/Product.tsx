@@ -23,12 +23,12 @@ export const Product = motion(forwardRef(({ product, className, ...props }: Prod
     };
 
     const scrollToReview = () => {
-
         setIsReviewOpened(true);
         reviewRef.current?.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
         });
+        reviewRef.current?.focus();
     };
 
     const renderReview = () => {
@@ -36,7 +36,7 @@ export const Product = motion(forwardRef(({ product, className, ...props }: Prod
             {product.reviews.map(item => {
                     return (
                         <div key={item._id}> 
-                            <Review className='f' review={item}/>
+                            <Review review={item}/>
                             <Divider/>
                         </div>
                     );
@@ -77,7 +77,7 @@ export const Product = motion(forwardRef(({ product, className, ...props }: Prod
                 <div className={styles.priceTitle}>цена</div>          
                 <div className={styles.creditTitle}>кредит</div>          
                 <div className={styles.rateTitle}>
-                    <a onClick={scrollToReview} className={styles.rateLink}>
+                    <a href="#ref" onClick={scrollToReview} className={styles.rateLink}>
                         {product.reviewCount}{" "}
                         {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзыввов'])}    
                     </a>     
@@ -116,14 +116,18 @@ export const Product = motion(forwardRef(({ product, className, ...props }: Prod
                     </Button>
                 </div>    
             </Card>
-            <motion.div variants={variants} initial="hidden" animate={isReviewOpened ? 'visible' : 'hidden'}>
+            <motion.div 
+                variants={variants} initial="hidden" 
+                animate={isReviewOpened ? 'visible' : 'hidden'}
+            >
                 <Card 
                     color="blue" 
                     className={styles.reviews}
                     ref={reviewRef}
+                    tabIndex={isReviewOpened ? 0 : -1}
                 >
                     {product.reviews.length === 0 ? <div>Отзывов нет</div> : renderReview()}
-                    <ReviewForm productId={product._id}/>
+                    <ReviewForm productId={product._id} isOpend={isReviewOpened}/>
                 </Card>
             </motion.div> 
         </div>
